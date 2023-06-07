@@ -1,10 +1,18 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
-function Counter({title,count}) {
-    
+
+function Counter() {
+  useEffect(()=>{
+    console.log('Mounting...');
+    return()=>{
+      console.log('Unmounting...');
+    }
+  })
+    const[count,setCount] =useState(0)
   return (
     <div>
-    <h2>{title} {count}</h2>  
+    <button onClick={()=>setCount(count+1)}>Increment</button>
+   <h1>HEllo i am a component : {count}</h1>
     </div>
   )
 }
